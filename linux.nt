@@ -1,11 +1,14 @@
-/etc/hosts.deny 自动添加自己IP处理办法
+1./etc/hosts.deny 自动添加自己IP处理办法
 如有你的ip地址  把下面的ip改成你的 然后执行下 就ok
 service denyhosts stop
 sed -i "/10.8.106.193/d" /usr/share/denyhosts/data/*
 sed -i "/10.8.106.193/d"  /etc/hosts.deny
 service denyhosts start
-无法修改linux密码Authentication token manipulation error 的解决办法
+2.无法修改linux密码Authentication token manipulation error 的解决办法
 #chattr -i /etc/passwd
 # lsattr -v /etc/passwd
 # chattr -i /etc/shadow
 #pwconv
+
+3. sed -n '/Build Date:/s/^.*Build Date:/xx/p
+意思是把*Build Date:替换为xx
