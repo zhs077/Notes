@@ -12,3 +12,5 @@ service denyhosts start
 
 3. sed -n '/Build Date:/s/^.*Build Date:/xx/p
 意思是把*Build Date:替换为xx
+4.linux机器拷贝（安装yum install lrzsz  更方便 sz ）
+scp -p 57891 watch@192.168.0.14://usr/local/src/public/PIC/wsComm/tools-common-res-1.0.15.tgz  ./ 
