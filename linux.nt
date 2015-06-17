@@ -4,3 +4,8 @@ service denyhosts stop
 sed -i "/10.8.106.193/d" /usr/share/denyhosts/data/*
 sed -i "/10.8.106.193/d"  /etc/hosts.deny
 service denyhosts start
+无法修改linux密码Authentication token manipulation error 的解决办法
+#chattr -i /etc/passwd
+# lsattr -v /etc/passwd
+# chattr -i /etc/shadow
+#pwconv
