@@ -1,0 +1,28 @@
+   Windows平台下也有好多人都喜欢用SourceInsight编辑C/C++程序，但是SourceInsight没有提供对代码格式化的功能，如果将Artistic Style集成到SourceInsight中，那就可以为它扩展出代码格式化的功能了。
+假定AStyle.exe的目录是“C:/ArtisticStyle/”，在该目录下有一个“c.opt”文件是用来保存配置的文件。下面简要地介绍下Artistic Style集成到SourceInsight中的方法。
+1. 打开你的SourceInsight, 选择菜单“Options-->Custom Commands-->Add”, 输入Artistic Style(可以随便输入一个名字)。
+2. Run中输入: E:/package/astyle/astyle.exe -KLmpb %f （注意路径不可以是中文的）
+3. Dir留空，将Iconic Window, Pause when done, Wait until done, File,then Line 四项前打上勾。
+4. 然后点对话框中右侧的按钮“Menu”， Menu--->Menu-->View--><end of menu>, 右侧Insert, OK.
+5. 此时在SourceInsight中的View菜单下多了个Style的子菜单选项，可以用它来对单个C/C++文件进行格式化。
+ 
+在Source Insight集成PC lint（静态检查）
+一、安装。 
+    1。首先，将本目录下的文件全部拷贝到c:/lint之下。 
+    2。然后，在Source InSight中，选择Option-> Custom Commands... 弹出“Custom Commands”窗口。 
+          进行如下设置： 
+            1)   Command不要填，Name填PCLint 
+            2)   Run中填：C:/LINT/Lint-nt.exe -ic:/lint/std.lnt %f 
+            3)   选中以下复选框： 
+                        Iconic   Window   
+                        Capture   Output 
+                        Save   Files   First 
+                        Wait   Until   Done 
+                        Parse   Links   in   Output 
+                        File,   then   Line 
+                  其他复选框不选。 
+            4)   Pattern中填：^/([a-zA-Z].*/)(/([0-9][0-9]*/)).*
+          然后点Add按钮。 
+      3。最后设置快捷键。 
+        点此窗口中的Keys...按钮，在Commands框中选“PCLint”，点"Add"按钮，然后敲一个热键。例        如"Ctrl+ALT+p "，没有冲突即可。最后点"OK "键。 
+      4。在“Custom   Commands”窗口中点 "Change "按钮。
