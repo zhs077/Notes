@@ -25,4 +25,4 @@ gzip -t xxx.gz
 for i in `ls |grep .gz`;do  echo $i `gzip -dc $i |wc -l`; done;
 
 7.curl digest认证格式
-curl --diges -u 139com:139com "http://zhenjiang95:688/cloud/getlog?date=2015-07-01&channel=cj.zhue.com.cn"
+curl --diges -u 139com:139com "http://IP:688/cloud/getlog?date=2015-07-01&channel=cj.zhue.com.cn"
