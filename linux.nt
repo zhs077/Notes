@@ -26,3 +26,25 @@ for i in `ls |grep .gz`;do  echo $i `gzip -dc $i |wc -l`; done;
 
 7.curl digest认证格式
 curl --diges -u 139com:139com "http://IP:688/cloud/getlog?date=2015-07-01&channel=cj.zhue.com.cn"
+
+    9.如果在代码里面注入自定义宏
+
+        1.configure.ac里面添加 
+
+        # Checks for envirements.
+         cur_os="`lsb_release -r | awk '{print int($2)}'`"
+         AM_CONDITIONAL(CUR_OS7, test "$cur_os" = "7")
+
+        
+
+      2.Makefile.am 添加,不能用tab建
+
+      if CUR_OS7
+           CENTOS_FLAG = -Dlibm_centos7
+     else
+          CENTOS_FLAG =
+     endif
+
+      3.编译的时候带上lighttpd_CPPFLAGS =  $(CENTOS_FLAG)
+
+      4.使用#ifdef libm_centos7 
