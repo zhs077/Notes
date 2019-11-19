@@ -1,3 +1,27 @@
 1.初始化 map 指定长度
 2.数组字符串拼接，使用strings.Join
 3.数组遍历，尽量不用range
+
+
+gzip 文件
+func (self *Process)readOneFile(fileName string) error {
+
+	fs, err := os.Open(fileName)
+	if err != nil{
+		LOG.ERROR.Println(err)
+		return err
+	}
+	defer fs.Close()
+	gz ,err := gzip.NewReader(fs)
+	if err != nil {
+		LOG.ERROR.Println(err)
+		return err
+	}
+	defer gz.Close()
+	scanner := bufio.NewScanner(gz)
+	for scanner.Scan() {
+		arr := strings.Split(scanner.Text(), "\t")
+	}
+
+
+}
