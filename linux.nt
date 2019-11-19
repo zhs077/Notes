@@ -48,3 +48,23 @@ curl --diges -u 139com:139com "http://IP:688/cloud/getlog?date=2015-07-01&channe
       3.编译的时候带上lighttpd_CPPFLAGS =  $(CENTOS_FLAG)
 
       4.使用#ifdef libm_centos7 
+      
+      ip 规则
+      
+iptables -I INPUT -p tcp --dport 48866 -j DROP
+iptables -I INPUT -s xx/28 -p tcp --dport 48866 -j ACCEPT
+iptables -I INPUT -s xx/28 -p tcp --dport 48866 -j ACCEPT
+iptables -I INPUT -s xx/27 -p tcp --dport 48866 -j ACCEPT
+iptables -I INPUT -s xx/28 -p tcp --dport 48866 -j ACCEPT
+iptables -I INPUT -s xx0/28 -p tcp --dport 48866 -j ACCEPT
+
+iptables -L –n #可以查看iptables规则
+iptables -L INPUT --line-numbers  #查看规则所在的行
+iptables -D INPUT 1  #删除所在行的规则
+service iptables save
+chkconfig iptables on
+
+
+
+
+
